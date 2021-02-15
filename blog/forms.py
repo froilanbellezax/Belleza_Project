@@ -1,4 +1,7 @@
 from django import forms
+from django.shortcuts import render
+
+
 class CommentForm(forms.Form):
     author = forms.CharField(
         max_length=60,

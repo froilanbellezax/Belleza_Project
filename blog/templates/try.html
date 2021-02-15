@@ -1,140 +1,86 @@
-{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Post</title>
+    <a class="content" href="javascript:history.go(0)">
+        <h2>Belleza Blog</h2> </a>
+
+    <div class="topnav">
+    <a href="http://127.0.0.1:8000/">Home</a>
+  </div>
+    <style>
+.topnav a {
+  float: center;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+}
+
+.topnav a:hover {
+  border-bottom: 3px solid red;
+}
+
+.topnav a.active {
+  border-bottom: 3px solid red;
+}
+    </style>
 </head>
 <body>
+<style>
+    html,body{
+  height:100%;
+  overflow:hidden;
+}
+body{
+  background:#E1D38A;
+  background-size:cover;
+  font-family:sans-serif;
+  text-align:center;
+  padding-top:20%
+}
+
+.content {
+	width: 400px;
+	background: #fff;
+	padding: 30px;
+	text-align: center;
+	z-index: 995;
+  box-shadow:0 3px 36px 0 rgba(0, 0, 0, 0.6);
+  display:inline-block;
+  opacity:0.7;
+  color:#666;
+  text-decoration:none;
+  transition:all 0.2s
+}
+
+.content:hover{
+  box-shadow:0 3px 6px 0 rgba(0, 0, 0, 0.3);
+  padding:40px;
+  margin-top:-10px;
+  color:#444
+}
+</style>
+<script>
+
+var rn = Math.floor((Math.random() * 150) + 60);
+var rs = Math.floor((Math.random() * 11) + 4);
+	var t = new Trianglify({
+ x_gradient: Trianglify.colorbrewer.Spectral[rs],
+    noiseIntensity: 0,
+    cellsize: rn
+});
+var pattern = t.generate(window.innerWidth, window.innerWidth+200);
+document.body.setAttribute('style', 'background-image: '+pattern.dataUrl);
+</script>
 {% block page_content %}
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Page Content -->
-  <div class="container">
-
-    <div class="row">
-
-      <!-- Blog Entries Column -->
-      <div class="col-md-8">
-
-        <h1 class="my-4">Page Heading
-          <small>Secondary Text</small>
-        </h1>
-<!-- Blog Post -->
-        <div class="card mb-4">
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-          <div class="card-body">
-            <h2 class="card-title">Post Title</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
-          </div>
-          <div class="card-footer text-muted">
-            Posted on January 1, 2020 by
-            <a href="#">Start Bootstrap</a>
-          </div>
-        </div>
-
-        <!-- Pagination -->
-        <ul class="pagination justify-content-center mb-4">
-          <li class="page-item">
-            <a class="page-link" href="#">&larr; Older</a>
-          </li>
-          <li class="page-item disabled">
-            <a class="page-link" href="#">Newer &rarr;</a>
-          </li>
-        </ul>
-
-      </div>
-
-      <!-- Sidebar Widgets Column -->
-      <div class="col-md-4">
-
-        <!-- Search Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Search</h5>
-          <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-append">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Categories Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Categories</h5>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">Web Design</a>
-                  </li>
-                  <li>
-                    <a href="#">HTML</a>
-                  </li>
-                  <li>
-                    <a href="#">Freebies</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">JavaScript</a>
-                  </li>
-                  <li>
-                    <a href="#">CSS</a>
-                  </li>
-                  <li>
-                    <a href="#">Tutorials</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Side Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Side Widget</h5>
-          <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-          </div>
-        </div>
-
-      </div>
 {% endblock page_content %} %}
 
-</body>
 
+</body>
 </html>
